@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=KFOlCnqEu92Fr1MmSU5vBgVmC-PRsa1oXFOdK3IzThr3atc-HX2mnjjmr2ca4lEJkzo1roOFA7eiCmpwfIbKmMdMwFPSWSXF9idKuFh4YAeP-vmL3bUwQZZdBk-ocOO7gTrL3---pplkHg5neg&skey=11ce8ad5f54705ca&v=v30) format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=KFOmCnqEu92Fr1Me4H4UIhUeDuTUsqBnUVCYLHcwUwXqadI5GH6rkTTiq2IZny50kD8yq4CIDLqhD211f5vVhcRJx1bRVCrI9SNxgWZ9ZwKM9_aG3rA3RJVAGVKrdeS-gjfE0uy7oQCa2g&skey=a0a0114a1dcab3ac&v=v30) format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=KFOlCnqEu92Fr1MmWUlvBgVmC-PRsa1oXFOdK3IzThr3atc-HX2mnjjmr2ca4lEJkzo1roOFA7eiCmpwfIbKmMdMwFPSWSXF9idKuFh4YAeP-vmL3bUwQZZdBk-ocOO7gTrL3---pplkHg5neg&skey=c06e7213f788649e&v=v30) format('woff2');
+}

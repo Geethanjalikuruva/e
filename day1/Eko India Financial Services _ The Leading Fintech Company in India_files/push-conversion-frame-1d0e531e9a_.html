@@ -1,0 +1,78 @@
+
+<!-- saved from url=(0088)https://ekoindia.cdn-in.pagesense.io/stage-script/push-conversion-frame-1d0e531e9a_.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script type="text/javascript">function retrievePushConversionData(){
+                var promise = caches.open("zps-push").then(cacheItem => {
+                    return cacheItem.keys().then(cacheItemKey => {
+                        return cacheItemKey.filter(item =>  item.url.indexOf("zps-push-data.json") > -1 );
+                    });
+                }); 
+                promise.then(pushDataCache => {
+                    if(pushDataCache && Array.isArray(pushDataCache) && pushDataCache.length){
+                        extractPushDataAndCleanup(pushDataCache[0].url);
+                    }
+                })
+            }
+
+            function extractPushDataAndCleanup(dataUrl){
+                var url = new URL(dataUrl);
+                var push_uuid = url.searchParams.get("push_uuid")
+                var sent_time = url.searchParams.get("sent_time")
+                var es_doc_id = url.searchParams.get("es_doc_id")
+                window.parent.postMessage({'type':13,'push_uuid':push_uuid,'sent_time':sent_time,'es_doc_id':es_doc_id}, "*");
+                clearPushDataCache();
+            }
+
+            function clearPushDataCache(){
+                caches.delete("zps-push");
+            }
+
+            window.parent.postMessage({"id": "zps-push-frame-ready"}, "*"); //No I18N
+
+            window.removeEventListener("message", pushNotifyReady);
+            window.addEventListener("message", pushNotifyReady);
+
+            function pushNotifyReady(event){
+                if (!(event.data && typeof event.data === "object" && event.data.id === "zps-pushnotify-ready")) {
+                    return;
+                }
+                sendNotificationPermission(event.data.opt_in_type);
+            }
+
+            function sendNotificationPermission(opt_in_type){
+                var notificationPermission = false;
+               
+                if(opt_in_type == 2){
+                    if(navigator.serviceWorker && navigator.serviceWorker.controller){
+                    if(navigator.serviceWorker.controller.state === "activated"){
+                        notificationPermission = true;
+                    }else{
+                        notificationPermission = false;
+                    }
+                }
+                var data = {
+                    "permission": notificationPermission, //No I18N
+                    "id": "zps-notification-permission", //No I18N
+                    "type": "push-conversion-frame", //No I18N
+                    "perm_status": Notification.permission //No I18N
+                };
+
+                if(Notification.permission === "denied"){
+                    navigator.serviceWorker.getRegistration().then(swReg => { 
+                        swReg.unregister().then(boolean => {
+                        }).catch(e => {
+                            return false;
+                        });
+                    }).catch(e => {
+                        return false;
+                    });
+                }
+
+                window.parent.postMessage(data, "*"); //No I18N
+                }
+               
+            }
+
+            if('serviceWorker' in navigator && 'caches' in window){
+                retrievePushConversionData();
+                sendNotificationPermission();
+            }</script></head><body></body></html>
