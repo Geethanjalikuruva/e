@@ -49,6 +49,7 @@ let care=document.getElementsByClassName("care")
 care[0].addEventListener("mouseover",()=>{
     
     let ap=document.getElementById("ap")
+    
    
     let b=ap.classList.toggle("none")
     if(b){

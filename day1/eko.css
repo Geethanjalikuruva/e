@@ -19,6 +19,7 @@
     margin-top: 8px;
 }
 
+
 #sh{
     border: 2px solid #ffb218;
     height: 250px;
@@ -454,19 +455,19 @@
 }
 .adhar{
     /* border: 2px solid; */
-    height: 260px;
-    width: 400px;
-    margin-left: 30px;
+    height: 300px;
+    width: 450px;
+    margin-left: 180px;
     margin-top: 35px;
 }
-#btn> #sp1{
+/* #btn> #sp1{
     border: 2px solid black;
     height: 50px;
     width: 50px;
     border-radius: 50px;
     margin-right: 80px;
     color:#ffb218;
-}
+} */
 #ind{
   text-align: center;
   padding-top: 50px;
